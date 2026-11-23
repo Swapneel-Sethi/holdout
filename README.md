@@ -72,9 +72,3 @@ This project was built for the Open Innovation track of Data Sprint 2.0. See `do
 - `docs/demo-script.md` - 2-5 minute demo video script
 - `docs/submission-checklist.md` - pre-submission verification
 - `docs/open-innovation-submission.md` - form-ready answers for the Google Form
-
-## Kaggle status
-
-Kaggle tracks (Agentic AI, Computer Vision, NLP) require authentication. No Kaggle credentials are available in this environment, and the competition API returns 401 Unauthenticated. Open Innovation was selected because it is fully accessible via public Google Form and supports an end-to-end deployable product.
-
-**The only manual steps remaining for submission are:** record a 2-5 minute demo video (host it, e.g., on YouTube or as a raw GitHub link), sign into Google, and submit the Open Innovation form. All other deliverables - repo, deployed URL, benchmark, docs - are complete.
