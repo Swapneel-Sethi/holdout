@@ -1,74 +1,149 @@
 # Holdout
 
-Dataset leakage audit. Built by Swapneel Sethi.
+## Dataset Leakage and Model Readiness Auditor
 
-**Track: Open Innovation**
+Your model can score 1.000 and still be wrong.
 
-Your leaderboard score is lying. Holdout audits a dataset before you spend a night modelling it. It finds the leaked column, reproduces the evidence, and measures how many points of your score will not survive a real deployment.
+A model can achieve an excellent validation score while the dataset itself leaks information that would not exist when the model is actually used. Holdout audits the dataset before the score is trusted.
+
+Holdout detects common leakage and dataset integrity risks, measures how suspicious information changes model performance, independently verifies accepted findings, and produces a Ship, Review, or Block verdict. It runs locally in the browser, does not require uploading the CSV, and uses deterministic statistical logic rather than an LLM generated verdict.
 
 ## Live
 
-- **App:** https://holdout-taupe-iota.vercel.app
-- **Repo:** https://github.com/Swapneel-Sethi/holdout
-- **Benchmark:** https://holdout-taupe-iota.vercel.app/benchmark
-- **Method:** https://holdout-taupe-iota.vercel.app/method
+App: https://holdout-taupe-iota.vercel.app
 
-## What it does
+Benchmark: https://holdout-taupe-iota.vercel.app/benchmark
 
-Holdout runs eight deterministic leakage detectors on a CSV you drop into the browser:
+Method: https://holdout-taupe-iota.vercel.app/method
+
+Repository: https://github.com/Swapneel-Sethi/holdout
+
+## The Problem
+
+Validation scores can be misleading when a dataset leaks information that would not exist at prediction time.
+
+A leaked column can look like a strong predictor. The model memorises it, validation climbs, and production collapses. The gap between the two numbers is a dataset problem, not a modelling problem.
+
+Example: a retail churn table with 540 rows and 9 columns includes a cancellation reason field that is only recorded after a customer leaves. That field carries the answer perfectly. A model using it logs AUC 1.000 on cross validation. Once the field is removed, the honest estimate drops to AUC 0.583. The inflation is 41.7 percentage points.
+
+## What Holdout Checks
+
+Holdout runs eight deterministic leakage detectors on a CSV. No LLM is used for any verdict.
 
 | Detector | What it catches |
 |---|---|
-| Target proxy | A feature that separates the label almost perfectly (AUC 0.95+ or Cramer's V 0.95+) |
-| Row identifier | A keylike column with one value per row |
-| Post outcome field | A column name that reads like it was written after the outcome, plus signal |
+| Target proxy | A feature that separates the label almost perfectly (AUC 0.95 or above for classification, correlation magnitude 0.93 or above for regression) |
+| Row identifier | A key like column with one distinct value per row |
+| Post outcome field | A column name that reads like it was written after the outcome, plus signal against the label |
 | Duplicate rows | Identical feature rows that can land on both sides of a split |
-| Entity overlap | The same entity appearing across rows (group leakage) |
-| Temporal drift | Time predicting the label (AUC 0.62+) |
+| Entity overlap | The same entity appearing across rows in three or more groups |
+| Temporal drift | Time predicting the label (AUC 0.62 or above) |
 | Zero variance | A column with a single distinct value |
-| Class imbalance | Minority class below 6% of labelled rows |
+| Class imbalance | Minority class below 6 percent of labelled rows |
 
-Then it quantifies the damage: a regularised linear model scores every feature, then the same model scores what remains after the flagged columns are removed. The gap is the inflation, how much of your reported score is fiction.
+## Measure the Damage
 
-Every finding is recomputed by an independent verifier before it reaches the screen. Claims that can't be reproduced are dropped.
+Holdout builds a design matrix with median imputation and one hot encoding. It fits a regularised linear model twice: once with every feature, and once with the flagged columns removed.
 
-## Stack
+The gap between the two scores is the honesty gap. It measures how much of the reported score does not survive when leaked columns are removed.
 
-Next.js 16, React 19, Tailwind 4, TypeScript, App Router. Zero server components for the audit, it runs entirely in the browser. Your CSV never leaves the tab.
+Using the retail churn example:
 
-## Scripts
+Reported AUC: 1.000
+Honest AUC: 0.583
+Performance inflation: 41.7 percentage points
 
-| Command | Purpose |
-|---|---|
-| `npm run dev` | Start dev server |
-| `npm run build` | Production build |
-| `npm run start` | Production server |
-| `npm run lint` | ESLint |
-| `npm run typecheck` | TypeScript check |
-| `npm run test` | Audit engine tests |
-| `npm run benchmark` | Regenerate synthetic benchmark (writes data/benchmark.json) |
-| `npm run cases` | Regenerate demo CSV cases |
+These numbers come from one specific table. They illustrate the gap, they are not universal results.
 
-## Project structure
+## Independent Verification
 
-```
-app/               Next.js App Router pages
-components/        React components (nav, footer, ui, workspace)
-lib/audit/         Deterministic audit engine (csv, stats, profile, detectors, model, engine, verify)
-lib/cases.ts       Demo case definitions and detector docs
-scripts/           Case generation, benchmark, headline, tests
-data/              Bundled demo CSVs and benchmark results
-public/cases/      Demo CSVs served to the browser
-```
+Every accepted finding is recomputed through an independent verification path that reads the raw table again. Findings that cannot be reproduced are discarded before they reach the screen.
 
-## Data Sprint 2.0 submission
+The verdict is not generated by an LLM. Every finding is a statistic computed from the table.
 
-This project was built for the Open Innovation track of Data Sprint 2.0. See `docs/` for:
+## Six Stage Audit
 
-- `docs/track-selection.md` - weighted scoring across Agentic AI, CV, NLP, Open Innovation
-- `docs/problem-statement.md` - extracted official problem statement
-- `docs/architecture.md` - system design
-- `docs/evaluation.md` - benchmark methodology and results
-- `docs/demo-script.md` - 2 to 5 minute demo video script
-- `docs/submission-checklist.md` - presubmission verification
-- `docs/open-innovation-submission.md` - formready answers for the Google Form
+Holdout runs six deterministic audit stages. These are pure functions with typed inputs and outputs, not six LLM calls.
+
+1. Profile: column types, missing values, cardinality, and duplicate rows computed on the raw file
+2. Detect: eight leakage checks run against the declared target, time column, and entity column
+3. Quantify: a regularised linear baseline scores every feature, then scores again after flagged columns are removed
+4. Explain: each finding carries the triggering statistic, affected columns, and a repair step
+5. Verify: each claim is recomputed by a second code path; unreproducible findings are dropped
+6. Decide: severity weights map to a readiness score and a Ship, Review, or Block verdict
+
+## Verdicts
+
+### Ship
+No critical integrity issue detected. The setup survived the audit.
+
+### Review
+Material risk detected. Human review is recommended before trusting the score.
+
+### Block
+Critical leakage or risk makes the current model score unsafe to trust. Any critical finding forces Block regardless of the overall readiness score.
+
+## Privacy
+
+CSV parsing happens in the browser. Audit computation happens locally. Server upload is not required for the audit. External APIs are not required for the verdict. The engine is designed to run in browser and Node environments.
+
+Your dataset stays in the tab.
+
+## Benchmark
+
+The audit engine is evaluated on 59 synthetic datasets across eight leakage families, plus clean controls.
+
+F1: 0.869
+Leak recall: 0.908
+Clean pass rate: 0.833
+Verified claims: 100 percent
+Median audit latency: 127 ms
+
+The benchmark includes a stress suite built to sit under detection thresholds so known limitations stay visible rather than being tuned away. Weak signals under a threshold are missed, and those misses are documented rather than hidden.
+
+## Technology
+
+Next.js 16
+React 19
+TypeScript
+Tailwind CSS 4
+Next.js App Router
+Deterministic audit engine
+Browser local processing
+Regularised logistic regression for classification comparison
+Ridge regression for regression comparison
+
+## Project Structure
+
+app/: Next.js App Router pages
+components/: React components
+lib/audit/: Deterministic audit engine
+lib/cases.ts: Demo case definitions
+scripts/: Case generation, benchmark, and test scripts
+data/: Bundled demo CSVs and benchmark results
+public/cases/: Demo CSVs served to the browser
+docs/: Deeper technical documentation
+
+## Run Locally
+
+npm install
+
+npm run dev
+
+Other available commands:
+
+npm run build: Production build
+npm run start: Production server
+npm run lint: ESLint
+npm run typecheck: TypeScript check
+npm run test: Audit engine tests
+npm run benchmark: Regenerate synthetic benchmark
+npm run cases: Regenerate demo CSV cases
+
+## Documentation
+
+The repository contains deeper technical documentation in docs/.
+
+## Author
+
+Swapneel Sethi
