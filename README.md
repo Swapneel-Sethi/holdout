@@ -20,7 +20,7 @@ Holdout runs eight deterministic leakage detectors on a CSV you drop into the br
 | Detector | What it catches |
 |---|---|
 | Target proxy | A feature that separates the label almost perfectly (AUC 0.95+ or Cramer's V 0.95+) |
-| Row identifier | A key-like column with one value per row |
+| Row identifier | A keylike column with one value per row |
 | Post outcome field | A column name that reads like it was written after the outcome, plus signal |
 | Duplicate rows | Identical feature rows that can land on both sides of a split |
 | Entity overlap | The same entity appearing across rows (group leakage) |
@@ -28,13 +28,13 @@ Holdout runs eight deterministic leakage detectors on a CSV you drop into the br
 | Zero variance | A column with a single distinct value |
 | Class imbalance | Minority class below 6% of labelled rows |
 
-Then it quantifies the damage: a regularised linear model scores every feature, then the same model scores what remains after the flagged columns are removed. The gap is the inflation - how much of your reported score is fiction.
+Then it quantifies the damage: a regularised linear model scores every feature, then the same model scores what remains after the flagged columns are removed. The gap is the inflation, how much of your reported score is fiction.
 
 Every finding is recomputed by an independent verifier before it reaches the screen. Claims that can't be reproduced are dropped.
 
 ## Stack
 
-Next.js 16, React 19, Tailwind 4, TypeScript, App Router. Zero server components for the audit - it runs entirely in the browser. Your CSV never leaves the tab.
+Next.js 16, React 19, Tailwind 4, TypeScript, App Router. Zero server components for the audit, it runs entirely in the browser. Your CSV never leaves the tab.
 
 ## Scripts
 
@@ -69,6 +69,6 @@ This project was built for the Open Innovation track of Data Sprint 2.0. See `do
 - `docs/problem-statement.md` - extracted official problem statement
 - `docs/architecture.md` - system design
 - `docs/evaluation.md` - benchmark methodology and results
-- `docs/demo-script.md` - 2-5 minute demo video script
-- `docs/submission-checklist.md` - pre-submission verification
-- `docs/open-innovation-submission.md` - form-ready answers for the Google Form
+- `docs/demo-script.md` - 2 to 5 minute demo video script
+- `docs/submission-checklist.md` - presubmission verification
+- `docs/open-innovation-submission.md` - formready answers for the Google Form
