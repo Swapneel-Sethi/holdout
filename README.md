@@ -28,13 +28,13 @@ Holdout runs eight deterministic leakage detectors on a CSV you drop into the br
 | Zero variance | A column with a single distinct value |
 | Class imbalance | Minority class below 6% of labelled rows |
 
-Then it quantifies the damage: a regularised linear model scores every feature, then the same model scores what remains after the flagged columns are removed. The gap is the inflation — how much of your reported score is fiction.
+Then it quantifies the damage: a regularised linear model scores every feature, then the same model scores what remains after the flagged columns are removed. The gap is the inflation - how much of your reported score is fiction.
 
 Every finding is recomputed by an independent verifier before it reaches the screen. Claims that can't be reproduced are dropped.
 
 ## Stack
 
-Next.js 16, React 19, Tailwind 4, TypeScript, App Router. Zero server components for the audit — it runs entirely in the browser. Your CSV never leaves the tab.
+Next.js 16, React 19, Tailwind 4, TypeScript, App Router. Zero server components for the audit - it runs entirely in the browser. Your CSV never leaves the tab.
 
 ## Scripts
 
@@ -65,16 +65,16 @@ public/cases/      Demo CSVs served to the browser
 
 This project was built for the Open Innovation track of Data Sprint 2.0. See `docs/` for:
 
-- `docs/track-selection.md` — weighted scoring across Agentic AI, CV, NLP, Open Innovation
-- `docs/problem-statement.md` — extracted official problem statement
-- `docs/architecture.md` — system design
-- `docs/evaluation.md` — benchmark methodology and results
-- `docs/demo-script.md` — 2-5 minute demo video script
-- `docs/submission-checklist.md` — pre-submission verification
-- `docs/open-innovation-submission.md` — form-ready answers for the Google Form
+- `docs/track-selection.md` - weighted scoring across Agentic AI, CV, NLP, Open Innovation
+- `docs/problem-statement.md` - extracted official problem statement
+- `docs/architecture.md` - system design
+- `docs/evaluation.md` - benchmark methodology and results
+- `docs/demo-script.md` - 2-5 minute demo video script
+- `docs/submission-checklist.md` - pre-submission verification
+- `docs/open-innovation-submission.md` - form-ready answers for the Google Form
 
 ## Kaggle status
 
 Kaggle tracks (Agentic AI, Computer Vision, NLP) require authentication. No Kaggle credentials are available in this environment, and the competition API returns 401 Unauthenticated. Open Innovation was selected because it is fully accessible via public Google Form and supports an end-to-end deployable product.
 
-**The only manual steps remaining for submission are:** record a 2–5 minute demo video (host it, e.g., on YouTube or as a raw GitHub link), sign into Google, and submit the Open Innovation form. All other deliverables — repo, deployed URL, benchmark, docs — are complete.
+**The only manual steps remaining for submission are:** record a 2-5 minute demo video (host it, e.g., on YouTube or as a raw GitHub link), sign into Google, and submit the Open Innovation form. All other deliverables - repo, deployed URL, benchmark, docs - are complete.
