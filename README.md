@@ -1,6 +1,6 @@
 # Holdout
 
-Dataset leakage audit for Data Sprint 2.0, organized by Anveshan at The National Institute of Engineering, Mysuru.
+Dataset leakage audit. Built by Swapneel Sethi.
 
 **Track: Open Innovation**
 

@@ -11,8 +11,7 @@ export function SiteFooter() {
             <span className="text-[14px] font-semibold tracking-tight">Holdout</span>
           </div>
           <p className="mt-2 text-[12px] leading-relaxed text-faint">
-            Dataset integrity audit. Built for Data Sprint 2.0, organized by Anveshan at The National
-            Institute of Engineering, Mysuru.
+            Dataset integrity audit. Built by Swapneel Sethi.
           </p>
         </div>
         <div className="flex gap-12 text-[12px]">
