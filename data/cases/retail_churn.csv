@@ -1,0 +1,541 @@
+customer_id,tenure_months,monthly_spend,support_tickets,plan,region,signup_date,churned,cancellation_reason
+C-10020,6,308,2,One year,Hubballi,2025-12-13,1,Price
+C-10021,8,338,4,One year,Bengaluru,2025-11-25,1,Price
+C-10022,4,564,2,Month-to-month,Bengaluru,2025-12-31,0,none
+C-10023,3,651,2,Two year,Mangaluru,2026-01-09,1,Moved
+C-10024,16,377,1,Month-to-month,Bengaluru,2025-09-14,0,none
+C-10025,27,454,2,Two year,Bengaluru,2025-06-07,0,none
+C-10026,11,372,2,Two year,Bengaluru,2025-10-29,1,Price
+C-10027,16,690,1,One year,Mangaluru,2025-09-14,0,none
+C-10028,3,376,0,One year,Hubballi,2026-01-09,0,none
+C-10029,13,250,1,One year,Mangaluru,2025-10-11,0,none
+C-10030,12,271,0,Month-to-month,Bengaluru,2025-10-20,0,none
+C-10031,16,784,1,Two year,Bengaluru,2025-09-14,0,none
+C-10032,8,95,2,One year,Mangaluru,2025-11-25,1,Support
+C-10033,6,508,1,One year,Hubballi,2025-12-13,0,none
+C-10034,12,335,3,Month-to-month,Hubballi,2025-10-20,1,Moved
+C-10035,8,436,2,Two year,Mangaluru,2025-11-25,0,none
+C-10036,14,549,4,Month-to-month,Bengaluru,2025-10-02,1,Competitor offer
+C-10037,6,430,1,One year,Mysuru,2025-12-13,1,Coverage
+C-10038,29,313,3,Two year,Mangaluru,2025-05-20,0,none
+C-10039,20,454,7,Two year,Hubballi,2025-08-09,1,Competitor offer
+C-10040,16,540,2,Month-to-month,Mangaluru,2025-09-14,1,Price
+C-10041,4,486,3,One year,Mangaluru,2025-12-31,1,Moved
+C-10042,7,515,2,One year,Hubballi,2025-12-04,1,Price
+C-10043,8,185,2,One year,Mangaluru,2025-11-25,1,Coverage
+C-10044,12,346,1,One year,Bengaluru,2025-10-20,0,none
+C-10045,10,534,0,Two year,Mysuru,2025-11-07,0,none
+C-10046,15,383,1,Month-to-month,Hubballi,2025-09-23,1,Coverage
+C-10047,21,297,1,Month-to-month,Bengaluru,2025-07-31,0,none
+C-10048,10,235,1,Two year,Hubballi,2025-11-07,0,none
+C-10049,9,234,4,One year,Mysuru,2025-11-16,0,none
+C-10050,10,638,1,Two year,Mysuru,2025-11-07,0,none
+C-10051,8,398,3,One year,Mangaluru,2025-11-25,0,none
+C-10052,14,256,4,One year,Mysuru,2025-10-02,1,Moved
+C-10053,7,361,3,Month-to-month,Bengaluru,2025-12-04,1,Moved
+C-10054,19,513,5,One year,Bengaluru,2025-08-18,1,Moved
+C-10055,9,315,0,One year,Mangaluru,2025-11-16,0,none
+C-10056,5,386,2,Month-to-month,Mangaluru,2025-12-22,1,Moved
+C-10057,14,566,1,Month-to-month,Mysuru,2025-10-02,1,Coverage
+C-10058,32,431,3,Two year,Mysuru,2025-04-23,1,Competitor offer
+C-10059,14,406,2,Month-to-month,Hubballi,2025-10-02,1,Support
+C-10060,19,510,1,Month-to-month,Mysuru,2025-08-18,1,Price
+C-10061,7,384,0,Two year,Bengaluru,2025-12-04,1,Competitor offer
+C-10062,12,227,5,One year,Mangaluru,2025-10-20,1,Price
+C-10063,10,530,4,Two year,Bengaluru,2025-11-07,1,Coverage
+C-10064,4,644,3,Month-to-month,Mysuru,2025-12-31,1,Moved
+C-10065,24,480,0,One year,Hubballi,2025-07-04,1,Support
+C-10066,8,483,1,Month-to-month,Bengaluru,2025-11-25,0,none
+C-10067,35,662,2,Two year,Mysuru,2025-03-27,0,none
+C-10068,7,473,3,Month-to-month,Mangaluru,2025-12-04,1,Price
+C-10069,12,660,0,One year,Bengaluru,2025-10-20,0,none
+C-10070,10,584,3,Two year,Mysuru,2025-11-07,1,Coverage
+C-10071,13,624,3,Month-to-month,Hubballi,2025-10-11,1,Moved
+C-10072,27,273,0,Month-to-month,Mangaluru,2025-06-07,0,none
+C-10073,9,268,2,One year,Mysuru,2025-11-16,1,Coverage
+C-10074,14,518,4,Month-to-month,Bengaluru,2025-10-02,1,Price
+C-10075,10,395,4,Month-to-month,Hubballi,2025-11-07,1,Coverage
+C-10076,24,239,3,Two year,Mangaluru,2025-07-04,0,none
+C-10077,12,409,3,Two year,Mangaluru,2025-10-20,0,none
+C-10078,22,627,1,Two year,Hubballi,2025-07-22,0,none
+C-10079,26,509,2,Month-to-month,Bengaluru,2025-06-16,1,Competitor offer
+C-10080,8,431,1,One year,Bengaluru,2025-11-25,1,Competitor offer
+C-10081,9,311,1,Month-to-month,Mysuru,2025-11-16,1,Support
+C-10082,18,489,0,Month-to-month,Mysuru,2025-08-27,0,none
+C-10083,9,186,1,One year,Bengaluru,2025-11-16,0,none
+C-10084,4,288,1,One year,Bengaluru,2025-12-31,1,Moved
+C-10085,4,405,2,One year,Mysuru,2025-12-31,0,none
+C-10086,9,469,2,Two year,Mangaluru,2025-11-16,1,Price
+C-10087,12,168,3,Month-to-month,Mangaluru,2025-10-20,0,none
+C-10088,13,481,3,Month-to-month,Bengaluru,2025-10-11,1,Competitor offer
+C-10089,6,637,2,Two year,Bengaluru,2025-12-13,1,Coverage
+C-10090,12,452,1,Month-to-month,Hubballi,2025-10-20,1,Support
+C-10091,33,450,0,Month-to-month,Bengaluru,2025-04-14,0,none
+C-10092,4,617,0,One year,Mangaluru,2025-12-31,1,Price
+C-10093,16,519,1,Month-to-month,Mysuru,2025-09-14,0,none
+C-10094,6,418,2,Two year,Mangaluru,2025-12-13,0,none
+C-10095,32,544,3,Two year,Hubballi,2025-04-23,0,none
+C-10096,14,440,2,Two year,Mysuru,2025-10-02,1,Coverage
+C-10097,13,767,2,One year,Mangaluru,2025-10-11,0,none
+C-10098,26,437,0,Month-to-month,Mangaluru,2025-06-16,0,none
+C-10099,6,629,1,One year,Mangaluru,2025-12-13,1,Coverage
+C-10100,11,540,2,Month-to-month,Hubballi,2025-10-29,0,none
+C-10101,32,503,1,Two year,Hubballi,2025-04-23,0,none
+C-10102,6,442,1,One year,Mangaluru,2025-12-13,1,Competitor offer
+C-10103,8,412,1,Month-to-month,Bengaluru,2025-11-25,1,Competitor offer
+C-10104,5,833,2,Two year,Mangaluru,2025-12-22,0,none
+C-10105,24,137,1,One year,Hubballi,2025-07-04,0,none
+C-10106,3,516,3,Month-to-month,Mangaluru,2026-01-09,1,Coverage
+C-10107,17,560,0,Month-to-month,Bengaluru,2025-09-05,1,Coverage
+C-10108,3,250,2,Two year,Bengaluru,2026-01-09,1,Price
+C-10109,14,535,1,Two year,Mangaluru,2025-10-02,0,none
+C-10110,12,552,3,Two year,Mysuru,2025-10-20,0,none
+C-10111,7,172,2,One year,Bengaluru,2025-12-04,0,none
+C-10112,6,165,3,Month-to-month,Hubballi,2025-12-13,0,none
+C-10113,17,377,1,Month-to-month,Mysuru,2025-09-05,1,Coverage
+C-10114,16,444,2,One year,Mangaluru,2025-09-14,1,Coverage
+C-10115,20,729,3,Two year,Mangaluru,2025-08-09,0,none
+C-10116,5,462,3,One year,Bengaluru,2025-12-22,0,none
+C-10117,10,561,5,Month-to-month,Mangaluru,2025-11-07,1,Moved
+C-10118,4,306,2,One year,Mangaluru,2025-12-31,1,Coverage
+C-10119,6,675,1,Month-to-month,Bengaluru,2025-12-13,0,none
+C-10120,7,283,1,One year,Hubballi,2025-12-04,0,none
+C-10121,4,55,2,Month-to-month,Mangaluru,2025-12-31,1,Competitor offer
+C-10122,5,484,2,One year,Mangaluru,2025-12-22,1,Support
+C-10123,11,256,2,Month-to-month,Hubballi,2025-10-29,0,none
+C-10124,14,387,1,Two year,Bengaluru,2025-10-02,0,none
+C-10125,7,620,2,Two year,Mangaluru,2025-12-04,1,Support
+C-10126,11,640,3,Month-to-month,Mysuru,2025-10-29,0,none
+C-10127,5,551,1,One year,Mangaluru,2025-12-22,0,none
+C-10128,27,653,1,Two year,Bengaluru,2025-06-07,0,none
+C-10129,39,372,2,One year,Mysuru,2025-02-19,0,none
+C-10130,20,623,3,Month-to-month,Hubballi,2025-08-09,1,Support
+C-10131,5,191,4,Month-to-month,Mysuru,2025-12-22,1,Moved
+C-10132,9,585,1,Month-to-month,Hubballi,2025-11-16,0,none
+C-10133,10,279,3,Month-to-month,Mangaluru,2025-11-07,1,Competitor offer
+C-10134,16,317,0,One year,Mangaluru,2025-09-14,0,none
+C-10135,5,626,1,Month-to-month,Mysuru,2025-12-22,0,none
+C-10136,42,167,1,Two year,Mangaluru,2025-01-23,0,none
+C-10137,9,778,2,Month-to-month,Mysuru,2025-11-16,1,Coverage
+C-10138,19,606,5,One year,Mysuru,2025-08-18,0,none
+C-10139,13,231,3,Month-to-month,Mysuru,2025-10-11,1,Price
+C-10140,8,592,1,Two year,Mangaluru,2025-11-25,0,none
+C-10141,5,423,1,Month-to-month,Mysuru,2025-12-22,0,none
+C-10142,10,579,1,Two year,Mangaluru,2025-11-07,1,Moved
+C-10143,6,550,2,Two year,Hubballi,2025-12-13,1,Moved
+C-10144,16,601,3,One year,Mangaluru,2025-09-14,1,Price
+C-10145,5,511,1,Month-to-month,Hubballi,2025-12-22,0,none
+C-10146,9,507,0,Two year,Mangaluru,2025-11-16,0,none
+C-10147,21,232,3,One year,Hubballi,2025-07-31,1,Price
+C-10148,5,554,1,Two year,Mysuru,2025-12-22,1,Moved
+C-10149,17,394,1,Month-to-month,Mangaluru,2025-09-05,0,none
+C-10150,37,360,0,One year,Bengaluru,2025-03-09,0,none
+C-10151,7,471,1,One year,Hubballi,2025-12-04,0,none
+C-10152,18,585,2,Two year,Hubballi,2025-08-27,1,Coverage
+C-10153,8,765,2,Two year,Mysuru,2025-11-25,0,none
+C-10154,12,673,2,One year,Mysuru,2025-10-20,1,Coverage
+C-10155,16,566,1,One year,Bengaluru,2025-09-14,0,none
+C-10156,25,551,1,Month-to-month,Mangaluru,2025-06-25,0,none
+C-10157,11,422,1,Two year,Bengaluru,2025-10-29,1,Coverage
+C-10158,12,719,4,Two year,Mysuru,2025-10-20,1,Coverage
+C-10159,9,370,1,Month-to-month,Hubballi,2025-11-16,1,Price
+C-10160,6,468,4,Two year,Mysuru,2025-12-13,1,Support
+C-10161,18,408,3,Month-to-month,Bengaluru,2025-08-27,1,Coverage
+C-10162,10,227,2,One year,Mangaluru,2025-11-07,0,none
+C-10163,44,547,2,Two year,Mysuru,2025-01-05,0,none
+C-10164,18,364,1,Two year,Hubballi,2025-08-27,1,Support
+C-10165,5,195,3,Month-to-month,Bengaluru,2025-12-22,1,Coverage
+C-10166,3,160,0,Month-to-month,Mangaluru,2026-01-09,1,Coverage
+C-10167,13,332,0,Month-to-month,Bengaluru,2025-10-11,1,Competitor offer
+C-10168,4,229,0,Month-to-month,Mangaluru,2025-12-31,0,none
+C-10169,18,167,2,One year,Mangaluru,2025-08-27,1,Price
+C-10170,23,522,1,Two year,Mysuru,2025-07-13,0,none
+C-10171,21,780,0,Two year,Mysuru,2025-07-31,0,none
+C-10172,22,240,1,Month-to-month,Bengaluru,2025-07-22,0,none
+C-10173,4,727,0,Two year,Bengaluru,2025-12-31,1,Competitor offer
+C-10174,6,469,2,Month-to-month,Mangaluru,2025-12-13,1,Price
+C-10175,8,362,1,Month-to-month,Bengaluru,2025-11-25,1,Price
+C-10176,3,175,0,Two year,Mysuru,2026-01-09,0,none
+C-10177,20,408,2,One year,Bengaluru,2025-08-09,0,none
+C-10178,18,413,2,Two year,Hubballi,2025-08-27,1,Competitor offer
+C-10179,11,461,1,Two year,Mangaluru,2025-10-29,1,Coverage
+C-10180,10,412,2,Two year,Bengaluru,2025-11-07,1,Moved
+C-10181,25,360,4,One year,Hubballi,2025-06-25,1,Moved
+C-10182,19,647,2,Two year,Hubballi,2025-08-18,0,none
+C-10183,10,264,1,Month-to-month,Bengaluru,2025-11-07,0,none
+C-10184,8,581,2,Two year,Mangaluru,2025-11-25,1,Moved
+C-10185,11,139,1,One year,Bengaluru,2025-10-29,0,none
+C-10186,11,440,3,One year,Hubballi,2025-10-29,1,Price
+C-10187,9,636,0,Month-to-month,Bengaluru,2025-11-16,0,none
+C-10188,10,380,0,Month-to-month,Mysuru,2025-11-07,1,Competitor offer
+C-10189,7,283,2,One year,Hubballi,2025-12-04,1,Coverage
+C-10190,18,580,0,Two year,Bengaluru,2025-08-27,1,Competitor offer
+C-10191,17,449,3,Month-to-month,Mysuru,2025-09-05,1,Support
+C-10192,15,557,0,Two year,Hubballi,2025-09-23,0,none
+C-10193,13,636,3,Two year,Mangaluru,2025-10-11,1,Support
+C-10194,13,709,0,Two year,Mangaluru,2025-10-11,0,none
+C-10195,12,381,3,Month-to-month,Mangaluru,2025-10-20,1,Moved
+C-10196,14,501,1,One year,Bengaluru,2025-10-02,1,Moved
+C-10197,6,647,0,Two year,Bengaluru,2025-12-13,0,none
+C-10198,27,290,2,One year,Mangaluru,2025-06-07,0,none
+C-10199,10,261,2,Month-to-month,Hubballi,2025-11-07,1,Price
+C-10200,17,433,1,Two year,Hubballi,2025-09-05,1,Price
+C-10201,12,640,1,One year,Mangaluru,2025-10-20,0,none
+C-10202,7,355,3,Two year,Hubballi,2025-12-04,1,Support
+C-10203,8,518,1,Month-to-month,Bengaluru,2025-11-25,1,Support
+C-10204,28,512,0,One year,Mysuru,2025-05-29,1,Coverage
+C-10205,27,214,1,One year,Hubballi,2025-06-07,1,Moved
+C-10206,8,461,2,Month-to-month,Mysuru,2025-11-25,1,Competitor offer
+C-10207,12,436,4,Two year,Mysuru,2025-10-20,1,Coverage
+C-10208,7,686,1,One year,Mysuru,2025-12-04,1,Moved
+C-10209,12,332,3,Month-to-month,Mysuru,2025-10-20,1,Coverage
+C-10210,8,768,1,Two year,Bengaluru,2025-11-25,1,Support
+C-10211,6,249,2,Two year,Mysuru,2025-12-13,1,Price
+C-10212,32,95,1,One year,Mangaluru,2025-04-23,0,none
+C-10213,8,358,6,Two year,Mysuru,2025-11-25,1,Price
+C-10214,13,347,2,Two year,Mysuru,2025-10-11,1,Moved
+C-10215,4,667,0,One year,Mangaluru,2025-12-31,1,Price
+C-10216,13,572,3,One year,Mysuru,2025-10-11,0,none
+C-10217,12,463,2,One year,Mangaluru,2025-10-20,0,none
+C-10218,8,247,2,One year,Mangaluru,2025-11-25,0,none
+C-10219,15,478,0,One year,Mangaluru,2025-09-23,0,none
+C-10220,16,477,1,Two year,Hubballi,2025-09-14,0,none
+C-10221,22,434,1,One year,Mangaluru,2025-07-22,0,none
+C-10222,14,616,3,Month-to-month,Bengaluru,2025-10-02,1,Moved
+C-10223,13,595,2,One year,Hubballi,2025-10-11,0,none
+C-10224,14,210,1,One year,Bengaluru,2025-10-02,1,Support
+C-10225,24,568,1,Month-to-month,Mysuru,2025-07-04,0,none
+C-10226,24,272,4,Month-to-month,Hubballi,2025-07-04,1,Moved
+C-10227,13,448,0,Two year,Bengaluru,2025-10-11,0,none
+C-10228,11,396,2,One year,Bengaluru,2025-10-29,1,Price
+C-10229,6,526,2,Two year,Mangaluru,2025-12-13,1,Support
+C-10230,7,468,1,One year,Hubballi,2025-12-04,0,none
+C-10231,9,379,0,One year,Hubballi,2025-11-16,1,Moved
+C-10232,5,507,2,Two year,Mysuru,2025-12-22,1,Price
+C-10233,23,460,0,Month-to-month,Hubballi,2025-07-13,1,Competitor offer
+C-10234,18,402,2,One year,Mangaluru,2025-08-27,1,Price
+C-10235,9,390,1,One year,Mysuru,2025-11-16,1,Competitor offer
+C-10236,16,707,1,Month-to-month,Hubballi,2025-09-14,0,none
+C-10237,30,524,0,One year,Bengaluru,2025-05-11,0,none
+C-10238,15,490,0,Two year,Mysuru,2025-09-23,0,none
+C-10239,7,519,5,Two year,Hubballi,2025-12-04,1,Support
+C-10240,5,631,0,One year,Hubballi,2025-12-22,0,none
+C-10241,16,433,2,One year,Bengaluru,2025-09-14,1,Support
+C-10242,23,390,2,Two year,Hubballi,2025-07-13,1,Price
+C-10243,17,300,1,Two year,Bengaluru,2025-09-05,1,Coverage
+C-10244,27,370,2,One year,Mangaluru,2025-06-07,0,none
+C-10245,7,634,2,One year,Bengaluru,2025-12-04,0,none
+C-10246,10,348,2,One year,Mysuru,2025-11-07,1,Support
+C-10247,17,393,4,One year,Hubballi,2025-09-05,1,Coverage
+C-10248,18,672,4,Two year,Hubballi,2025-08-27,1,Coverage
+C-10249,14,416,2,Two year,Mangaluru,2025-10-02,0,none
+C-10250,16,301,3,One year,Hubballi,2025-09-14,0,none
+C-10251,22,486,0,One year,Mangaluru,2025-07-22,1,Price
+C-10252,4,654,1,Month-to-month,Mangaluru,2025-12-31,0,none
+C-10253,14,413,1,One year,Hubballi,2025-10-02,1,Price
+C-10254,9,436,1,Month-to-month,Bengaluru,2025-11-16,1,Support
+C-10255,16,337,5,One year,Mangaluru,2025-09-14,0,none
+C-10256,22,487,4,Month-to-month,Hubballi,2025-07-22,1,Coverage
+C-10257,13,276,1,One year,Hubballi,2025-10-11,0,none
+C-10258,9,551,2,Two year,Hubballi,2025-11-16,0,none
+C-10259,7,396,2,Month-to-month,Bengaluru,2025-12-04,1,Support
+C-10260,30,354,1,Month-to-month,Mangaluru,2025-05-11,0,none
+C-10261,12,911,4,Two year,Bengaluru,2025-10-20,1,Support
+C-10262,13,275,1,One year,Bengaluru,2025-10-11,1,Competitor offer
+C-10263,18,614,1,Two year,Bengaluru,2025-08-27,0,none
+C-10264,13,814,0,Two year,Mangaluru,2025-10-11,0,none
+C-10265,6,438,1,Two year,Mysuru,2025-12-13,0,none
+C-10266,29,543,4,Two year,Mangaluru,2025-05-20,0,none
+C-10267,9,492,2,Two year,Hubballi,2025-11-16,0,none
+C-10268,15,538,3,Two year,Bengaluru,2025-09-23,0,none
+C-10269,4,228,7,Month-to-month,Mysuru,2025-12-31,1,Support
+C-10270,12,403,1,Month-to-month,Mangaluru,2025-10-20,1,Support
+C-10271,22,117,3,Two year,Mysuru,2025-07-22,1,Competitor offer
+C-10272,18,189,1,Month-to-month,Hubballi,2025-08-27,1,Price
+C-10273,15,398,4,One year,Mangaluru,2025-09-23,1,Support
+C-10274,6,204,1,One year,Mangaluru,2025-12-13,1,Coverage
+C-10275,7,821,2,Month-to-month,Mangaluru,2025-12-04,1,Support
+C-10276,26,238,0,One year,Mangaluru,2025-06-16,1,Support
+C-10277,3,426,3,Month-to-month,Bengaluru,2026-01-09,1,Coverage
+C-10278,22,43,2,One year,Mysuru,2025-07-22,1,Price
+C-10279,13,26,2,Month-to-month,Hubballi,2025-10-11,1,Price
+C-10280,15,280,3,Month-to-month,Bengaluru,2025-09-23,1,Price
+C-10281,20,468,3,Month-to-month,Bengaluru,2025-08-09,1,Support
+C-10282,10,734,1,Two year,Mangaluru,2025-11-07,1,Coverage
+C-10283,12,420,0,One year,Mangaluru,2025-10-20,1,Moved
+C-10284,10,453,1,Two year,Mysuru,2025-11-07,1,Competitor offer
+C-10285,22,551,2,Month-to-month,Mangaluru,2025-07-22,0,none
+C-10286,11,586,2,Two year,Mysuru,2025-10-29,1,Moved
+C-10287,4,696,4,Two year,Bengaluru,2025-12-31,1,Price
+C-10288,32,314,2,Month-to-month,Bengaluru,2025-04-23,1,Support
+C-10289,14,302,3,One year,Bengaluru,2025-10-02,1,Support
+C-10290,27,535,3,Two year,Hubballi,2025-06-07,0,none
+C-10291,4,768,2,Two year,Bengaluru,2025-12-31,1,Competitor offer
+C-10292,14,569,2,Month-to-month,Mangaluru,2025-10-02,1,Coverage
+C-10293,10,381,0,Two year,Hubballi,2025-11-07,0,none
+C-10294,3,342,0,One year,Bengaluru,2026-01-09,1,Support
+C-10295,22,694,0,Month-to-month,Bengaluru,2025-07-22,0,none
+C-10296,23,592,4,Month-to-month,Hubballi,2025-07-13,1,Support
+C-10297,28,618,1,Two year,Hubballi,2025-05-29,0,none
+C-10298,22,558,0,One year,Bengaluru,2025-07-22,0,none
+C-10299,16,552,4,Month-to-month,Mysuru,2025-09-14,1,Support
+C-10300,17,672,0,Two year,Mangaluru,2025-09-05,0,none
+C-10301,8,415,1,Month-to-month,Bengaluru,2025-11-25,0,none
+C-10302,5,607,0,Month-to-month,Hubballi,2025-12-22,1,Moved
+C-10303,13,764,1,Month-to-month,Mysuru,2025-10-11,1,Coverage
+C-10304,38,396,0,Two year,Mysuru,2025-02-28,0,none
+C-10305,31,738,1,Two year,Mangaluru,2025-05-02,0,none
+C-10306,11,170,3,One year,Hubballi,2025-10-29,1,Price
+C-10307,11,430,0,One year,Bengaluru,2025-10-29,0,none
+C-10308,6,484,2,Two year,Mangaluru,2025-12-13,1,Moved
+C-10309,21,547,1,Month-to-month,Mysuru,2025-07-31,0,none
+C-10310,34,444,2,One year,Mysuru,2025-04-05,0,none
+C-10311,14,480,2,One year,Mangaluru,2025-10-02,1,Competitor offer
+C-10312,4,413,1,Two year,Hubballi,2025-12-31,0,none
+C-10313,6,777,0,Two year,Mangaluru,2025-12-13,0,none
+C-10314,17,272,3,Two year,Hubballi,2025-09-05,1,Moved
+C-10315,4,495,4,Two year,Mysuru,2025-12-31,0,none
+C-10316,17,129,2,Month-to-month,Bengaluru,2025-09-05,1,Competitor offer
+C-10317,8,226,4,One year,Hubballi,2025-11-25,1,Moved
+C-10318,21,776,1,Two year,Hubballi,2025-07-31,0,none
+C-10319,8,227,2,Two year,Mysuru,2025-11-25,1,Moved
+C-10320,37,699,2,Two year,Mangaluru,2025-03-09,0,none
+C-10321,23,398,3,Month-to-month,Bengaluru,2025-07-13,1,Competitor offer
+C-10322,3,196,2,One year,Mysuru,2026-01-09,1,Support
+C-10323,6,461,1,Month-to-month,Hubballi,2025-12-13,0,none
+C-10324,32,276,6,Month-to-month,Mysuru,2025-04-23,1,Support
+C-10325,27,414,2,Month-to-month,Hubballi,2025-06-07,1,Price
+C-10326,6,307,1,Two year,Bengaluru,2025-12-13,1,Moved
+C-10327,15,630,2,Month-to-month,Bengaluru,2025-09-23,0,none
+C-10328,21,599,1,Two year,Hubballi,2025-07-31,0,none
+C-10329,3,420,1,One year,Bengaluru,2026-01-09,0,none
+C-10330,8,602,0,Month-to-month,Mangaluru,2025-11-25,0,none
+C-10331,5,680,1,Two year,Hubballi,2025-12-22,0,none
+C-10332,11,148,1,One year,Mysuru,2025-10-29,1,Competitor offer
+C-10333,6,835,2,One year,Bengaluru,2025-12-13,1,Price
+C-10334,5,225,7,Month-to-month,Mangaluru,2025-12-22,1,Coverage
+C-10335,15,242,1,Month-to-month,Bengaluru,2025-09-23,1,Competitor offer
+C-10336,4,559,2,Two year,Mangaluru,2025-12-31,0,none
+C-10337,30,513,2,Two year,Hubballi,2025-05-11,0,none
+C-10338,19,507,1,Two year,Bengaluru,2025-08-18,1,Moved
+C-10339,24,393,3,Two year,Mangaluru,2025-07-04,1,Price
+C-10340,6,423,2,One year,Mysuru,2025-12-13,0,none
+C-10341,13,711,1,One year,Mysuru,2025-10-11,0,none
+C-10342,7,531,0,Month-to-month,Bengaluru,2025-12-04,1,Competitor offer
+C-10343,16,366,1,One year,Hubballi,2025-09-14,1,Moved
+C-10344,17,282,2,Two year,Mangaluru,2025-09-05,0,none
+C-10345,13,527,0,One year,Mysuru,2025-10-11,0,none
+C-10346,10,405,1,Two year,Mysuru,2025-11-07,1,Moved
+C-10347,19,468,1,One year,Mangaluru,2025-08-18,0,none
+C-10348,15,503,2,One year,Mysuru,2025-09-23,0,none
+C-10349,21,402,3,Two year,Hubballi,2025-07-31,1,Moved
+C-10350,10,611,1,Month-to-month,Mangaluru,2025-11-07,1,Price
+C-10351,8,648,0,Two year,Mangaluru,2025-11-25,0,none
+C-10352,12,363,1,One year,Mysuru,2025-10-20,1,Competitor offer
+C-10353,10,279,0,One year,Hubballi,2025-11-07,0,none
+C-10354,19,384,4,Month-to-month,Bengaluru,2025-08-18,1,Support
+C-10355,5,431,4,One year,Bengaluru,2025-12-22,1,Competitor offer
+C-10356,5,390,2,Month-to-month,Mysuru,2025-12-22,1,Coverage
+C-10357,24,394,0,Month-to-month,Mangaluru,2025-07-04,0,none
+C-10358,5,625,1,One year,Bengaluru,2025-12-22,0,none
+C-10359,13,380,1,Month-to-month,Bengaluru,2025-10-11,1,Price
+C-10360,12,319,4,One year,Bengaluru,2025-10-20,1,Support
+C-10361,20,231,1,Month-to-month,Bengaluru,2025-08-09,0,none
+C-10362,15,540,1,One year,Hubballi,2025-09-23,1,Price
+C-10363,15,361,0,Month-to-month,Bengaluru,2025-09-23,1,Moved
+C-10364,10,508,2,Two year,Mangaluru,2025-11-07,0,none
+C-10365,4,314,2,Month-to-month,Bengaluru,2025-12-31,0,none
+C-10366,3,549,1,One year,Mysuru,2026-01-09,1,Competitor offer
+C-10367,33,457,0,Two year,Bengaluru,2025-04-14,0,none
+C-10368,14,449,1,Two year,Hubballi,2025-10-02,0,none
+C-10369,26,570,0,Two year,Mysuru,2025-06-16,1,Support
+C-10370,25,563,4,Two year,Mysuru,2025-06-25,0,none
+C-10371,12,439,2,One year,Mangaluru,2025-10-20,1,Support
+C-10372,25,337,2,Month-to-month,Hubballi,2025-06-25,1,Price
+C-10373,3,272,2,Month-to-month,Mysuru,2026-01-09,1,Competitor offer
+C-10374,17,323,1,Month-to-month,Mysuru,2025-09-05,0,none
+C-10375,6,344,1,One year,Bengaluru,2025-12-13,0,none
+C-10376,13,625,6,Two year,Mangaluru,2025-10-11,1,Competitor offer
+C-10377,9,289,3,One year,Mysuru,2025-11-16,0,none
+C-10378,27,423,1,Two year,Bengaluru,2025-06-07,1,Coverage
+C-10379,3,165,2,One year,Mysuru,2026-01-09,1,Price
+C-10380,6,453,0,One year,Hubballi,2025-12-13,0,none
+C-10381,15,564,2,Two year,Mangaluru,2025-09-23,1,Price
+C-10382,12,617,1,Two year,Mangaluru,2025-10-20,1,Coverage
+C-10383,13,600,1,Two year,Mysuru,2025-10-11,0,none
+C-10384,21,609,0,Month-to-month,Bengaluru,2025-07-31,0,none
+C-10385,7,763,4,One year,Mangaluru,2025-12-04,0,none
+C-10386,3,542,0,One year,Mangaluru,2026-01-09,0,none
+C-10387,10,234,2,One year,Mangaluru,2025-11-07,1,Moved
+C-10388,6,401,0,Two year,Bengaluru,2025-12-13,1,Coverage
+C-10389,22,662,2,Two year,Mangaluru,2025-07-22,0,none
+C-10390,5,556,2,Month-to-month,Hubballi,2025-12-22,1,Coverage
+C-10391,21,400,5,Two year,Bengaluru,2025-07-31,1,Price
+C-10392,19,340,0,Two year,Hubballi,2025-08-18,0,none
+C-10393,13,571,0,One year,Hubballi,2025-10-11,1,Competitor offer
+C-10394,22,481,1,One year,Bengaluru,2025-07-22,0,none
+C-10395,23,564,2,One year,Mysuru,2025-07-13,1,Coverage
+C-10396,19,96,1,One year,Hubballi,2025-08-18,0,none
+C-10397,8,508,2,Two year,Mangaluru,2025-11-25,0,none
+C-10398,6,397,3,Month-to-month,Hubballi,2025-12-13,1,Moved
+C-10399,16,441,0,Month-to-month,Mysuru,2025-09-14,1,Support
+C-10400,29,249,1,Two year,Hubballi,2025-05-20,0,none
+C-10401,38,461,1,Month-to-month,Mysuru,2025-02-28,0,none
+C-10402,33,350,3,One year,Mangaluru,2025-04-14,1,Price
+C-10403,26,182,2,One year,Mangaluru,2025-06-16,0,none
+C-10404,37,261,2,Two year,Bengaluru,2025-03-09,0,none
+C-10405,29,586,2,Month-to-month,Mysuru,2025-05-20,0,none
+C-10406,9,504,1,One year,Hubballi,2025-11-16,1,Support
+C-10407,18,648,1,Month-to-month,Mangaluru,2025-08-27,1,Price
+C-10408,24,333,3,Two year,Mysuru,2025-07-04,0,none
+C-10409,9,276,1,Two year,Mangaluru,2025-11-16,1,Moved
+C-10410,13,804,3,Two year,Bengaluru,2025-10-11,0,none
+C-10411,17,466,1,One year,Mangaluru,2025-09-05,0,none
+C-10412,3,720,1,Month-to-month,Bengaluru,2026-01-09,0,none
+C-10413,21,463,1,One year,Hubballi,2025-07-31,1,Support
+C-10414,13,164,2,Two year,Mysuru,2025-10-11,1,Coverage
+C-10415,42,312,4,Month-to-month,Bengaluru,2025-01-23,1,Competitor offer
+C-10416,6,-21,1,One year,Bengaluru,2025-12-13,0,none
+C-10417,15,399,1,One year,Bengaluru,2025-09-23,0,none
+C-10418,3,352,1,One year,Mangaluru,2026-01-09,1,Competitor offer
+C-10419,9,651,2,Month-to-month,Mangaluru,2025-11-16,0,none
+C-10420,35,469,4,Two year,Bengaluru,2025-03-27,0,none
+C-10421,19,192,2,One year,Mangaluru,2025-08-18,1,Competitor offer
+C-10422,12,437,1,Month-to-month,Hubballi,2025-10-20,0,none
+C-10423,6,468,1,Two year,Mangaluru,2025-12-13,0,none
+C-10424,12,43,2,Month-to-month,Bengaluru,2025-10-20,1,Price
+C-10425,16,571,1,Month-to-month,Hubballi,2025-09-14,1,Competitor offer
+C-10426,17,354,0,One year,Mysuru,2025-09-05,0,none
+C-10427,5,489,0,Two year,Bengaluru,2025-12-22,1,Moved
+C-10428,24,503,1,Month-to-month,Mangaluru,2025-07-04,1,Moved
+C-10429,7,437,3,One year,Hubballi,2025-12-04,1,Moved
+C-10430,19,421,3,Two year,Mysuru,2025-08-18,0,none
+C-10431,18,518,0,One year,Hubballi,2025-08-27,0,none
+C-10432,23,347,2,One year,Mangaluru,2025-07-13,1,Coverage
+C-10433,26,497,2,One year,Bengaluru,2025-06-16,1,Price
+C-10434,16,366,0,One year,Mysuru,2025-09-14,1,Competitor offer
+C-10435,4,228,1,Two year,Mysuru,2025-12-31,1,Coverage
+C-10436,29,322,0,Two year,Bengaluru,2025-05-20,0,none
+C-10437,10,484,4,Month-to-month,Mangaluru,2025-11-07,1,Competitor offer
+C-10438,26,349,3,Two year,Bengaluru,2025-06-16,1,Support
+C-10439,4,376,5,Two year,Mangaluru,2025-12-31,1,Price
+C-10440,9,575,2,Month-to-month,Hubballi,2025-11-16,1,Moved
+C-10441,8,112,1,Two year,Hubballi,2025-11-25,1,Support
+C-10442,6,633,0,Two year,Bengaluru,2025-12-13,0,none
+C-10443,14,580,0,One year,Mangaluru,2025-10-02,0,none
+C-10444,7,497,1,Two year,Mangaluru,2025-12-04,0,none
+C-10445,7,373,2,Two year,Bengaluru,2025-12-04,1,Competitor offer
+C-10446,37,609,2,Two year,Mangaluru,2025-03-09,0,none
+C-10447,6,906,2,One year,Hubballi,2025-12-13,1,Coverage
+C-10448,16,588,3,One year,Bengaluru,2025-09-14,1,Support
+C-10449,17,591,0,Two year,Hubballi,2025-09-05,0,none
+C-10450,17,444,2,One year,Hubballi,2025-09-05,1,Support
+C-10451,31,666,1,Two year,Mangaluru,2025-05-02,0,none
+C-10452,5,431,4,Two year,Bengaluru,2025-12-22,1,Support
+C-10453,16,371,1,One year,Hubballi,2025-09-14,1,Moved
+C-10454,5,376,1,Two year,Mysuru,2025-12-22,1,Competitor offer
+C-10455,15,588,3,One year,Mysuru,2025-09-23,0,none
+C-10456,21,593,3,Two year,Bengaluru,2025-07-31,1,Coverage
+C-10457,5,579,0,One year,Hubballi,2025-12-22,1,Moved
+C-10458,6,114,4,Month-to-month,Mangaluru,2025-12-13,0,none
+C-10459,23,279,1,One year,Mysuru,2025-07-13,1,Moved
+C-10460,21,369,4,One year,Mangaluru,2025-07-31,1,Price
+C-10461,11,624,0,Two year,Hubballi,2025-10-29,0,none
+C-10462,10,665,0,Month-to-month,Hubballi,2025-11-07,1,Competitor offer
+C-10463,5,624,1,Month-to-month,Hubballi,2025-12-22,1,Coverage
+C-10464,4,334,3,One year,Mangaluru,2025-12-31,1,Competitor offer
+C-10465,11,651,3,Two year,Mysuru,2025-10-29,1,Moved
+C-10466,31,244,0,One year,Bengaluru,2025-05-02,0,none
+C-10467,13,377,1,One year,Mysuru,2025-10-11,0,none
+C-10468,19,257,1,One year,Hubballi,2025-08-18,0,none
+C-10469,9,422,1,One year,Mangaluru,2025-11-16,1,Price
+C-10470,7,487,0,Month-to-month,Hubballi,2025-12-04,1,Price
+C-10471,12,290,3,One year,Bengaluru,2025-10-20,0,none
+C-10472,3,378,0,Month-to-month,Bengaluru,2026-01-09,1,Competitor offer
+C-10473,18,546,2,One year,Bengaluru,2025-08-27,0,none
+C-10474,6,275,5,Two year,Mysuru,2025-12-13,1,Competitor offer
+C-10475,15,301,1,Month-to-month,Mangaluru,2025-09-23,1,Support
+C-10476,11,638,2,One year,Hubballi,2025-10-29,0,none
+C-10477,12,437,2,Two year,Mysuru,2025-10-20,1,Coverage
+C-10478,10,562,2,Month-to-month,Bengaluru,2025-11-07,1,Coverage
+C-10479,8,292,2,One year,Bengaluru,2025-11-25,0,none
+C-10480,23,85,3,One year,Bengaluru,2025-07-13,1,Competitor offer
+C-10481,16,147,2,Month-to-month,Mysuru,2025-09-14,1,Coverage
+C-10482,7,420,2,Month-to-month,Hubballi,2025-12-04,0,none
+C-10483,14,521,3,One year,Mangaluru,2025-10-02,1,Support
+C-10484,8,684,1,Month-to-month,Mangaluru,2025-11-25,1,Price
+C-10485,23,466,1,One year,Bengaluru,2025-07-13,0,none
+C-10486,4,24,1,Month-to-month,Mangaluru,2025-12-31,0,none
+C-10487,18,186,1,One year,Mangaluru,2025-08-27,1,Coverage
+C-10488,11,129,2,Month-to-month,Hubballi,2025-10-29,1,Competitor offer
+C-10489,10,159,5,Month-to-month,Mangaluru,2025-11-07,1,Coverage
+C-10490,20,476,0,One year,Bengaluru,2025-08-09,1,Price
+C-10491,12,239,2,One year,Hubballi,2025-10-20,1,Coverage
+C-10492,4,421,1,One year,Mangaluru,2025-12-31,1,Coverage
+C-10493,21,376,3,Month-to-month,Bengaluru,2025-07-31,0,none
+C-10494,5,280,0,One year,Hubballi,2025-12-22,0,none
+C-10495,22,382,1,Month-to-month,Mangaluru,2025-07-22,1,Competitor offer
+C-10496,5,608,2,Month-to-month,Mangaluru,2025-12-22,1,Coverage
+C-10497,21,864,1,Two year,Mysuru,2025-07-31,0,none
+C-10498,18,625,0,Month-to-month,Hubballi,2025-08-27,1,Moved
+C-10499,22,579,1,Two year,Mysuru,2025-07-22,0,none
+C-10500,9,468,3,Month-to-month,Mangaluru,2025-11-16,0,none
+C-10501,7,275,1,One year,Hubballi,2025-12-04,0,none
+C-10502,39,215,0,One year,Mysuru,2025-02-19,0,none
+C-10503,12,621,4,Two year,Bengaluru,2025-10-20,1,Moved
+C-10504,4,66,3,Two year,Bengaluru,2025-12-31,1,Price
+C-10505,16,614,0,Two year,Mangaluru,2025-09-14,0,none
+C-10506,32,596,0,Month-to-month,Mangaluru,2025-04-23,0,none
+C-10507,18,415,1,Month-to-month,Mysuru,2025-08-27,1,Price
+C-10508,25,382,1,Month-to-month,Hubballi,2025-06-25,0,none
+C-10509,16,615,1,Two year,Mangaluru,2025-09-14,0,none
+C-10510,29,717,3,Month-to-month,Hubballi,2025-05-20,1,Support
+C-10511,15,474,2,Month-to-month,Mangaluru,2025-09-23,1,Price
+C-10512,23,368,4,One year,Mysuru,2025-07-13,0,none
+C-10513,22,559,1,One year,Hubballi,2025-07-22,1,Competitor offer
+C-10514,4,506,1,Two year,Mangaluru,2025-12-31,1,Price
+C-10515,9,689,0,Two year,Mysuru,2025-11-16,0,none
+C-10516,10,617,0,Two year,Mysuru,2025-11-07,0,none
+C-10517,16,406,2,Two year,Hubballi,2025-09-14,0,none
+C-10518,15,374,2,One year,Mysuru,2025-09-23,0,none
+C-10519,18,736,0,Two year,Mangaluru,2025-08-27,1,Competitor offer
+C-10520,25,584,2,Two year,Hubballi,2025-06-25,1,Coverage
+C-10521,33,422,1,Month-to-month,Mysuru,2025-04-14,0,none
+C-10522,4,422,0,Two year,Mysuru,2025-12-31,1,Price
+C-10523,31,528,1,One year,Hubballi,2025-05-02,0,none
+C-10524,41,566,2,One year,Bengaluru,2025-02-01,1,Moved
+C-10525,13,288,0,One year,Bengaluru,2025-10-11,0,none
+C-10526,6,483,2,Two year,Mysuru,2025-12-13,1,Moved
+C-10527,11,454,2,Two year,Hubballi,2025-10-29,1,Competitor offer
+C-10528,32,763,1,Two year,Hubballi,2025-04-23,0,none
+C-10529,20,651,3,One year,Bengaluru,2025-08-09,0,none
+C-10530,30,542,2,Two year,Mangaluru,2025-05-11,0,none
+C-10531,4,530,0,Two year,Hubballi,2025-12-31,0,none
+C-10532,4,278,0,Month-to-month,Mangaluru,2025-12-31,1,Price
+C-10533,24,402,5,One year,Mangaluru,2025-07-04,0,none
+C-10534,23,196,0,One year,Mangaluru,2025-07-13,0,none
+C-10535,20,180,2,One year,Bengaluru,2025-08-09,0,none
+C-10536,10,369,3,One year,Mangaluru,2025-11-07,1,Price
+C-10537,10,423,1,Two year,Bengaluru,2025-11-07,0,none
+C-10538,3,448,1,One year,Mangaluru,2026-01-09,1,Competitor offer
+C-10539,15,339,0,Month-to-month,Hubballi,2025-09-23,0,none
+C-10540,22,412,1,One year,Mangaluru,2025-07-22,1,Coverage
+C-10541,9,479,4,Two year,Hubballi,2025-11-16,0,none
+C-10542,14,324,1,Month-to-month,Mysuru,2025-10-02,1,Competitor offer
+C-10543,7,321,1,One year,Hubballi,2025-12-04,0,none
+C-10544,11,509,0,One year,Mysuru,2025-10-29,1,Competitor offer
+C-10545,9,361,0,One year,Mysuru,2025-11-16,0,none
+C-10546,12,328,0,Two year,Hubballi,2025-10-20,1,Support
+C-10547,15,648,3,Month-to-month,Hubballi,2025-09-23,0,none
+C-10548,43,648,1,One year,Bengaluru,2025-01-14,0,none
+C-10549,12,687,0,Two year,Mangaluru,2025-10-20,0,none
+C-10550,12,149,3,Month-to-month,Mangaluru,2025-10-20,1,Competitor offer
+C-10551,15,504,1,Month-to-month,Bengaluru,2025-09-23,0,none
+C-10552,49,421,0,Month-to-month,Hubballi,2024-11-21,0,none
+C-10553,7,515,1,Month-to-month,Hubballi,2025-12-04,1,Competitor offer
+C-10554,4,478,2,One year,Mysuru,2025-12-31,0,none
+C-10555,6,276,1,Month-to-month,Mangaluru,2025-12-13,0,none
+C-10556,21,590,1,Two year,Bengaluru,2025-07-31,0,none
+C-10557,29,188,4,One year,Mysuru,2025-05-20,1,Support
+C-10558,9,188,1,Month-to-month,Mysuru,2025-11-16,1,Competitor offer
+C-10559,22,441,4,Month-to-month,Mangaluru,2025-07-22,1,Price

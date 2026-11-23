@@ -1,0 +1,224 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg: #070809;
+  --color-panel: #0b0d10;
+  --color-raised: #0f1216;
+  --color-line: #1b1f26;
+  --color-line2: #272c35;
+  --color-ink: #f4f6f8;
+  --color-muted: #98a1ad;
+  --color-faint: #6c7581;
+  --color-blue: #57c1ff;
+  --color-red: #ff6161;
+  --color-green: #59d499;
+  --color-amber: #f3b562;
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-mono);
+}
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  border-color: var(--color-line);
+}
+
+html {
+  background: var(--color-bg);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #57c1ff33;
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #070809;
+}
+::-webkit-scrollbar-thumb {
+  background: #232830;
+  border-radius: 999px;
+  border: 2px solid #070809;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #323944;
+}
+
+@layer components {
+  .panel {
+    background: var(--color-panel);
+    border: 1px solid var(--color-line);
+    border-radius: 14px;
+  }
+
+  .panel-raised {
+    background: linear-gradient(180deg, #11151a 0%, #0c0f13 100%);
+    border: 1px solid var(--color-line);
+    border-radius: 14px;
+  }
+
+  .label {
+    font-size: 10px;
+    line-height: 1;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-faint);
+    font-weight: 500;
+  }
+
+  .mono {
+    font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid var(--color-line);
+    background: #10131899;
+    border-radius: 6px;
+    padding: 2px 7px;
+    font-size: 11px;
+    color: var(--color-muted);
+    white-space: nowrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    height: 36px;
+    padding: 0 14px;
+    transition:
+      background 140ms ease,
+      border-color 140ms ease,
+      color 140ms ease,
+      transform 140ms ease;
+    border: 1px solid transparent;
+  }
+
+  .btn-primary {
+    background: var(--color-blue);
+    color: #04121c;
+  }
+  .btn-primary:hover {
+    background: #7ed0ff;
+  }
+  .btn-primary:active {
+    transform: translateY(1px);
+  }
+
+  .btn-ghost {
+    border-color: var(--color-line2);
+    background: #10131880;
+    color: var(--color-ink);
+  }
+  .btn-ghost:hover {
+    background: #171b21;
+    border-color: #343b46;
+  }
+
+  .focus-ring:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px #070809, 0 0 0 4px #57c1ff99;
+  }
+
+  .grid-lines {
+    background-image:
+      linear-gradient(to right, #ffffff05 1px, transparent 1px),
+      linear-gradient(to bottom, #ffffff05 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .fade-up {
+    animation: fade-up 520ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 0 1px #57c1ff26, 0 18px 60px -30px #57c1ff66;
+  }
+
+  .score-track {
+    background: #ffffff0d;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .score-fill {
+    height: 100%;
+    border-radius: 3px;
+    animation: grow 720ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    transform-origin: left;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}

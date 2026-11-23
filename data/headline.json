@@ -1,0 +1,64 @@
+{
+  "generatedAt": "2026-11-23T06:01:33.709Z",
+  "case": "retail_churn.csv",
+  "title": "Retail churn",
+  "rows": 540,
+  "columns": 9,
+  "verdict": {
+    "level": "block",
+    "label": "Block",
+    "headline": "1 leak must be removed before this model is trusted.",
+    "detail": "Target proxy detected: cancellation_reason. Validation reads AUC 1.000 with every feature, and 0.699 without the flagged columns. That is 41.7 points of inflation.",
+    "score": 79
+  },
+  "model": {
+    "metric": "auc",
+    "task": "classification",
+    "rows": 540,
+    "folds": 5,
+    "features": 17,
+    "full": 1,
+    "clean": 0.6994172558550596,
+    "temporal": 0.5828176192209683,
+    "grouped": 0.721097615834458,
+    "inflation": 0.4171823807790317,
+    "droppedColumns": [
+      "cancellation_reason",
+      "customer_id"
+    ]
+  },
+  "verified": {
+    "total": 2,
+    "passed": 2
+  },
+  "findings": [
+    {
+      "severity": "critical",
+      "leakType": "target_proxy",
+      "title": "Target proxy detected: cancellation_reason",
+      "columns": [
+        "cancellation_reason"
+      ],
+      "metric": {
+        "name": "association",
+        "value": 0.9999999999999999,
+        "display": "1.000"
+      },
+      "fix": "Remove cancellation_reason from training. If it is genuinely available at prediction time, prove it with an out of time evaluation."
+    },
+    {
+      "severity": "high",
+      "leakType": "identifier",
+      "title": "Row identifier used as a feature: customer_id",
+      "columns": [
+        "customer_id"
+      ],
+      "metric": {
+        "name": "unique ratio",
+        "value": 1,
+        "display": "1.000"
+      },
+      "fix": "Drop customer_id before building the design matrix. Keep it only as a join key outside the model."
+    }
+  ]
+}

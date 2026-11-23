@@ -1,0 +1,1037 @@
+{
+  "generatedAt": "2026-11-23T06:01:26.933Z",
+  "engineVersion": "1.4.0",
+  "datasets": 59,
+  "overall": {
+    "datasets": 59,
+    "recall": 0.908,
+    "cleanPassRate": 0.833,
+    "f1": 0.869,
+    "medianLatencyMs": 127,
+    "verifiedRate": 1,
+    "perType": [
+      {
+        "type": "target_proxy",
+        "label": "target proxy",
+        "cases": 8,
+        "detected": 6,
+        "recall": 0.75
+      },
+      {
+        "type": "identifier",
+        "label": "identifier",
+        "cases": 6,
+        "detected": 6,
+        "recall": 1
+      },
+      {
+        "type": "temporal",
+        "label": "temporal",
+        "cases": 8,
+        "detected": 6,
+        "recall": 0.75
+      },
+      {
+        "type": "group_entity",
+        "label": "group entity",
+        "cases": 7,
+        "detected": 6,
+        "recall": 0.8571428571428571
+      },
+      {
+        "type": "duplicate_rows",
+        "label": "duplicate rows",
+        "cases": 6,
+        "detected": 6,
+        "recall": 1
+      },
+      {
+        "type": "imbalance",
+        "label": "imbalance",
+        "cases": 6,
+        "detected": 6,
+        "recall": 1
+      },
+      {
+        "type": "name_signal",
+        "label": "name signal",
+        "cases": 6,
+        "detected": 6,
+        "recall": 1
+      },
+      {
+        "type": "clean",
+        "label": "Clean control",
+        "cases": 12,
+        "detected": 10,
+        "recall": 0.8333333333333334
+      }
+    ]
+  },
+  "core": {
+    "datasets": 51,
+    "recall": 1,
+    "cleanPassRate": 1,
+    "f1": 1,
+    "medianLatencyMs": 129,
+    "verifiedRate": 1,
+    "perType": [
+      {
+        "type": "target_proxy",
+        "label": "target proxy",
+        "cases": 6,
+        "detected": 6,
+        "recall": 1
+      },
+      {
+        "type": "identifier",
+        "label": "identifier",
+        "cases": 6,
+        "detected": 6,
+        "recall": 1
+      },
+      {
+        "type": "temporal",
+        "label": "temporal",
+        "cases": 6,
+        "detected": 6,
+        "recall": 1
+      },
+      {
+        "type": "group_entity",
+        "label": "group entity",
+        "cases": 6,
+        "detected": 6,
+        "recall": 1
+      },
+      {
+        "type": "duplicate_rows",
+        "label": "duplicate rows",
+        "cases": 6,
+        "detected": 6,
+        "recall": 1
+      },
+      {
+        "type": "imbalance",
+        "label": "imbalance",
+        "cases": 6,
+        "detected": 6,
+        "recall": 1
+      },
+      {
+        "type": "name_signal",
+        "label": "name signal",
+        "cases": 6,
+        "detected": 6,
+        "recall": 1
+      },
+      {
+        "type": "clean",
+        "label": "Clean control",
+        "cases": 9,
+        "detected": 9,
+        "recall": 1
+      }
+    ]
+  },
+  "stress": {
+    "datasets": 8,
+    "recall": 0,
+    "cleanPassRate": 0.333,
+    "f1": 0,
+    "medianLatencyMs": 71,
+    "verifiedRate": 1,
+    "perType": [
+      {
+        "type": "target_proxy",
+        "label": "target proxy",
+        "cases": 2,
+        "detected": 0,
+        "recall": 0
+      },
+      {
+        "type": "temporal",
+        "label": "temporal",
+        "cases": 2,
+        "detected": 0,
+        "recall": 0
+      },
+      {
+        "type": "group_entity",
+        "label": "group entity",
+        "cases": 1,
+        "detected": 0,
+        "recall": 0
+      },
+      {
+        "type": "clean",
+        "label": "Clean control",
+        "cases": 3,
+        "detected": 1,
+        "recall": 0.3333333333333333
+      }
+    ]
+  },
+  "runs": [
+    {
+      "name": "proxy_0",
+      "suite": "core",
+      "expected": "target_proxy",
+      "matched": true,
+      "latencyMs": 98,
+      "findings": [
+        "target_proxy"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0.3759245239065867
+    },
+    {
+      "name": "proxy_1",
+      "suite": "core",
+      "expected": "target_proxy",
+      "matched": true,
+      "latencyMs": 81,
+      "findings": [
+        "target_proxy"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0.3660968660968661
+    },
+    {
+      "name": "proxy_2",
+      "suite": "core",
+      "expected": "target_proxy",
+      "matched": true,
+      "latencyMs": 153,
+      "findings": [
+        "target_proxy"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0.4011707988980716
+    },
+    {
+      "name": "proxy_3",
+      "suite": "core",
+      "expected": "target_proxy",
+      "matched": true,
+      "latencyMs": 141,
+      "findings": [
+        "target_proxy"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0.3582013991163475
+    },
+    {
+      "name": "proxy_4",
+      "suite": "core",
+      "expected": "target_proxy",
+      "matched": true,
+      "latencyMs": 137,
+      "findings": [
+        "target_proxy"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0.46232942533153953
+    },
+    {
+      "name": "proxy_5",
+      "suite": "core",
+      "expected": "target_proxy",
+      "matched": true,
+      "latencyMs": 146,
+      "findings": [
+        "target_proxy"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0.36359391052582424
+    },
+    {
+      "name": "identifier_0",
+      "suite": "core",
+      "expected": "identifier",
+      "matched": true,
+      "latencyMs": 120,
+      "findings": [
+        "identifier"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "identifier_1",
+      "suite": "core",
+      "expected": "identifier",
+      "matched": true,
+      "latencyMs": 123,
+      "findings": [
+        "identifier"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "identifier_2",
+      "suite": "core",
+      "expected": "identifier",
+      "matched": true,
+      "latencyMs": 162,
+      "findings": [
+        "identifier"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "identifier_3",
+      "suite": "core",
+      "expected": "identifier",
+      "matched": true,
+      "latencyMs": 134,
+      "findings": [
+        "identifier"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "identifier_4",
+      "suite": "core",
+      "expected": "identifier",
+      "matched": true,
+      "latencyMs": 127,
+      "findings": [
+        "identifier"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "identifier_5",
+      "suite": "core",
+      "expected": "identifier",
+      "matched": true,
+      "latencyMs": 133,
+      "findings": [
+        "identifier"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "temporal_0",
+      "suite": "core",
+      "expected": "temporal",
+      "matched": true,
+      "latencyMs": 106,
+      "findings": [
+        "temporal"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0.22219522968197886
+    },
+    {
+      "name": "temporal_1",
+      "suite": "core",
+      "expected": "temporal",
+      "matched": true,
+      "latencyMs": 103,
+      "findings": [
+        "temporal"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0.027725504906032317
+    },
+    {
+      "name": "temporal_2",
+      "suite": "core",
+      "expected": "temporal",
+      "matched": true,
+      "latencyMs": 167,
+      "findings": [
+        "temporal"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0.07007894235905354
+    },
+    {
+      "name": "temporal_3",
+      "suite": "core",
+      "expected": "temporal",
+      "matched": true,
+      "latencyMs": 116,
+      "findings": [
+        "temporal"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0.060397956376788464
+    },
+    {
+      "name": "temporal_4",
+      "suite": "core",
+      "expected": "temporal",
+      "matched": true,
+      "latencyMs": 116,
+      "findings": [
+        "temporal"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0.12839704725189494
+    },
+    {
+      "name": "temporal_5",
+      "suite": "core",
+      "expected": "temporal",
+      "matched": true,
+      "latencyMs": 113,
+      "findings": [
+        "temporal"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0.0475189655517525
+    },
+    {
+      "name": "group_0",
+      "suite": "core",
+      "expected": "group_entity",
+      "matched": true,
+      "latencyMs": 84,
+      "findings": [
+        "group_entity"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0.05031414368763765
+    },
+    {
+      "name": "group_1",
+      "suite": "core",
+      "expected": "group_entity",
+      "matched": true,
+      "latencyMs": 94,
+      "findings": [
+        "group_entity"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "group_2",
+      "suite": "core",
+      "expected": "group_entity",
+      "matched": true,
+      "latencyMs": 82,
+      "findings": [
+        "group_entity"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "group_3",
+      "suite": "core",
+      "expected": "group_entity",
+      "matched": true,
+      "latencyMs": 85,
+      "findings": [
+        "group_entity"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0.016713151973267504
+    },
+    {
+      "name": "group_4",
+      "suite": "core",
+      "expected": "group_entity",
+      "matched": true,
+      "latencyMs": 92,
+      "findings": [
+        "group_entity"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "group_5",
+      "suite": "core",
+      "expected": "group_entity",
+      "matched": true,
+      "latencyMs": 82,
+      "findings": [
+        "group_entity"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "duplicates_0",
+      "suite": "core",
+      "expected": "duplicate_rows",
+      "matched": true,
+      "latencyMs": 145,
+      "findings": [
+        "duplicate_rows"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "duplicates_1",
+      "suite": "core",
+      "expected": "duplicate_rows",
+      "matched": true,
+      "latencyMs": 136,
+      "findings": [
+        "duplicate_rows"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "duplicates_2",
+      "suite": "core",
+      "expected": "duplicate_rows",
+      "matched": true,
+      "latencyMs": 131,
+      "findings": [
+        "duplicate_rows"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "duplicates_3",
+      "suite": "core",
+      "expected": "duplicate_rows",
+      "matched": true,
+      "latencyMs": 126,
+      "findings": [
+        "duplicate_rows"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "duplicates_4",
+      "suite": "core",
+      "expected": "duplicate_rows",
+      "matched": true,
+      "latencyMs": 139,
+      "findings": [
+        "duplicate_rows"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "duplicates_5",
+      "suite": "core",
+      "expected": "duplicate_rows",
+      "matched": true,
+      "latencyMs": 146,
+      "findings": [
+        "duplicate_rows"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "imbalance_0",
+      "suite": "core",
+      "expected": "imbalance",
+      "matched": true,
+      "latencyMs": 5,
+      "findings": [
+        "imbalance"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": null
+    },
+    {
+      "name": "imbalance_1",
+      "suite": "core",
+      "expected": "imbalance",
+      "matched": true,
+      "latencyMs": 139,
+      "findings": [
+        "imbalance"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "imbalance_2",
+      "suite": "core",
+      "expected": "imbalance",
+      "matched": true,
+      "latencyMs": 5,
+      "findings": [
+        "imbalance"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": null
+    },
+    {
+      "name": "imbalance_3",
+      "suite": "core",
+      "expected": "imbalance",
+      "matched": true,
+      "latencyMs": 132,
+      "findings": [
+        "imbalance"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "imbalance_4",
+      "suite": "core",
+      "expected": "imbalance",
+      "matched": true,
+      "latencyMs": 5,
+      "findings": [
+        "imbalance"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": null
+    },
+    {
+      "name": "imbalance_5",
+      "suite": "core",
+      "expected": "imbalance",
+      "matched": true,
+      "latencyMs": 140,
+      "findings": [
+        "imbalance"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "name_signal_0",
+      "suite": "core",
+      "expected": "name_signal",
+      "matched": true,
+      "latencyMs": 138,
+      "findings": [
+        "name_signal"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0.10688093183779124
+    },
+    {
+      "name": "name_signal_1",
+      "suite": "core",
+      "expected": "name_signal",
+      "matched": true,
+      "latencyMs": 128,
+      "findings": [
+        "name_signal",
+        "duplicate_rows"
+      ],
+      "verified": {
+        "total": 2,
+        "passed": 2
+      },
+      "modelInflation": 0.10488245931283913
+    },
+    {
+      "name": "name_signal_2",
+      "suite": "core",
+      "expected": "name_signal",
+      "matched": true,
+      "latencyMs": 145,
+      "findings": [
+        "name_signal"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0.12510802704488844
+    },
+    {
+      "name": "name_signal_3",
+      "suite": "core",
+      "expected": "name_signal",
+      "matched": true,
+      "latencyMs": 159,
+      "findings": [
+        "name_signal"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0.09315886134067952
+    },
+    {
+      "name": "name_signal_4",
+      "suite": "core",
+      "expected": "name_signal",
+      "matched": true,
+      "latencyMs": 147,
+      "findings": [
+        "name_signal"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0.1144611436950147
+    },
+    {
+      "name": "name_signal_5",
+      "suite": "core",
+      "expected": "name_signal",
+      "matched": true,
+      "latencyMs": 151,
+      "findings": [
+        "name_signal"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0.04716829776993425
+    },
+    {
+      "name": "clean_0",
+      "suite": "core",
+      "expected": "clean",
+      "matched": true,
+      "latencyMs": 126,
+      "findings": [],
+      "verified": {
+        "total": 0,
+        "passed": 0
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "clean_1",
+      "suite": "core",
+      "expected": "clean",
+      "matched": true,
+      "latencyMs": 116,
+      "findings": [],
+      "verified": {
+        "total": 0,
+        "passed": 0
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "clean_2",
+      "suite": "core",
+      "expected": "clean",
+      "matched": true,
+      "latencyMs": 120,
+      "findings": [],
+      "verified": {
+        "total": 0,
+        "passed": 0
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "clean_3",
+      "suite": "core",
+      "expected": "clean",
+      "matched": true,
+      "latencyMs": 129,
+      "findings": [],
+      "verified": {
+        "total": 0,
+        "passed": 0
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "clean_4",
+      "suite": "core",
+      "expected": "clean",
+      "matched": true,
+      "latencyMs": 138,
+      "findings": [],
+      "verified": {
+        "total": 0,
+        "passed": 0
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "clean_5",
+      "suite": "core",
+      "expected": "clean",
+      "matched": true,
+      "latencyMs": 138,
+      "findings": [],
+      "verified": {
+        "total": 0,
+        "passed": 0
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "clean_6",
+      "suite": "core",
+      "expected": "clean",
+      "matched": true,
+      "latencyMs": 126,
+      "findings": [],
+      "verified": {
+        "total": 0,
+        "passed": 0
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "clean_7",
+      "suite": "core",
+      "expected": "clean",
+      "matched": true,
+      "latencyMs": 200,
+      "findings": [],
+      "verified": {
+        "total": 0,
+        "passed": 0
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "clean_8",
+      "suite": "core",
+      "expected": "clean",
+      "matched": true,
+      "latencyMs": 192,
+      "findings": [],
+      "verified": {
+        "total": 0,
+        "passed": 0
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "stress_proxy_noisy_0",
+      "suite": "stress",
+      "expected": "target_proxy",
+      "matched": false,
+      "latencyMs": 173,
+      "findings": [],
+      "verified": {
+        "total": 0,
+        "passed": 0
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "stress_proxy_noisy_1",
+      "suite": "stress",
+      "expected": "target_proxy",
+      "matched": false,
+      "latencyMs": 169,
+      "findings": [],
+      "verified": {
+        "total": 0,
+        "passed": 0
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "stress_temporal_weak_0",
+      "suite": "stress",
+      "expected": "temporal",
+      "matched": false,
+      "latencyMs": 72,
+      "findings": [],
+      "verified": {
+        "total": 0,
+        "passed": 0
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "stress_temporal_weak_1",
+      "suite": "stress",
+      "expected": "temporal",
+      "matched": false,
+      "latencyMs": 68,
+      "findings": [],
+      "verified": {
+        "total": 0,
+        "passed": 0
+      },
+      "modelInflation": 0.011703667953667951
+    },
+    {
+      "name": "stress_group_sparse",
+      "suite": "stress",
+      "expected": "group_entity",
+      "matched": false,
+      "latencyMs": 47,
+      "findings": [
+        "duplicate_rows"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0.022442099117434278
+    },
+    {
+      "name": "stress_clean_text_0",
+      "suite": "stress",
+      "expected": "clean",
+      "matched": false,
+      "latencyMs": 71,
+      "findings": [
+        "identifier"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "stress_clean_text_1",
+      "suite": "stress",
+      "expected": "clean",
+      "matched": false,
+      "latencyMs": 70,
+      "findings": [
+        "identifier"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0
+    },
+    {
+      "name": "stress_clean_strong",
+      "suite": "stress",
+      "expected": "clean",
+      "matched": true,
+      "latencyMs": 58,
+      "findings": [
+        "duplicate_rows"
+      ],
+      "verified": {
+        "total": 1,
+        "passed": 1
+      },
+      "modelInflation": 0
+    }
+  ]
+}
