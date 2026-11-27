@@ -98,6 +98,8 @@ export interface AuditResult {
   config: AuditConfig;
   rows: number;
   columnCount: number;
+  analysisMode: "full" | "sampled";
+  sampleSize: number | null;
   profiles: ColumnProfile[];
   findings: Finding[];
   model: ModelRisk | null;

@@ -3,10 +3,28 @@ import { measureModelRisk } from "./model";
 import { profileDataset } from "./profile";
 import { verifyFindings } from "./verify";
 import type { AuditConfig, AuditResult, Dataset, Finding, TraceStep, Verdict } from "./types";
+import type { RawValue } from "./types";
 import { ENGINE_VERSION } from "./types";
+
+const ANALYSIS_ROW_THRESHOLD = 25000;
+const SAMPLE_SIZE = 25000;
 
 function now(): number {
   return typeof performance !== "undefined" ? performance.now() : Date.now();
+}
+
+const sleep = (ms: number = 0): Promise<void> =>
+  new Promise((r) => setTimeout(r, ms));
+
+function systematicSample(dataset: Dataset, size: number): Dataset {
+  const n = dataset.rows.length;
+  if (n <= size) return dataset;
+  const k = Math.ceil(n / size);
+  const sampledRows: RawValue[][] = [];
+  for (let i = 0; i < n && sampledRows.length < size; i += k) {
+    sampledRows.push(dataset.rows[i]);
+  }
+  return { name: dataset.name, columns: dataset.columns, rows: sampledRows };
 }
 
 function flaggedColumns(findings: Finding[]): Set<string> {
@@ -19,7 +37,7 @@ function flaggedColumns(findings: Finding[]): Set<string> {
   return set;
 }
 
-function buildVerdict(findings: Finding[], model: AuditResult["model"]): Verdict {
+function buildVerdict(findings: Finding[], model: AuditResult["model"], analysisMode: "full" | "sampled"): Verdict {
   let score = 100;
   for (const f of findings) {
     score -= Math.round((SEVERITY_WEIGHT[f.leakType] ?? 0) / 2);
@@ -57,14 +75,137 @@ function buildVerdict(findings: Finding[], model: AuditResult["model"]): Verdict
     };
   }
 
+  const modeNote = analysisMode === "sampled" ? " This run analyzed a deterministic sample of the table." : "";
   return {
     level: "ship",
     label: "Ship",
     headline: "No material leakage found in the declared setup.",
     detail: model
-      ? `Cross validated ${model.metric.toUpperCase()} ${model.full.toFixed(3)} and clean ${model.clean.toFixed(3)}. Keep the split strategy documented and rerun the audit when the data changes.`
+      ? `Cross validated ${model.metric.toUpperCase()} ${model.full.toFixed(3)} and clean ${model.clean.toFixed(3)}. Keep the split strategy documented and rerun the audit when the data changes.${modeNote}`
       : "The schema is consistent. No target proxy, identifier, temporal drift or entity overlap was found.",
     score,
+  };
+}
+
+export async function runAuditAsync(
+  dataset: Dataset,
+  config: AuditConfig,
+): Promise<AuditResult> {
+  const trace: TraceStep[] = [];
+  const t0 = now();
+  let t = t0;
+
+  const fullRows = dataset.rows.length;
+  const analysisDataset = fullRows > ANALYSIS_ROW_THRESHOLD
+    ? systematicSample(dataset, SAMPLE_SIZE)
+    : dataset;
+  const analysisMode: "full" | "sampled" = fullRows > ANALYSIS_ROW_THRESHOLD ? "sampled" : "full";
+  const sampleSize = analysisMode === "sampled" ? analysisDataset.rows.length : null;
+
+  const profiles = profileDataset(analysisDataset);
+  const profileMs = now() - t;
+  t = now();
+  trace.push({
+    id: "profile",
+    role: "Input agent",
+    title: "Schema profiled",
+    summary: `${analysisDataset.columns.length} columns, ${analysisDataset.rows.length} analysis rows of ${fullRows} total rows, ${profiles.filter((p) => p.missing > 0).length} columns with missing values.`,
+    status: "passed",
+    durationMs: Math.round(profileMs),
+    artifacts: [`${analysisDataset.rows.length} analysis rows`, `${analysisDataset.columns.length} columns`],
+  });
+
+  await sleep();
+
+  const findings = detect(analysisDataset, config.target, config, profiles);
+  const detectMs = now() - t;
+  t = now();
+  const worst = findings[0];
+  trace.push({
+    id: "detect",
+    role: "Leakage agent",
+    title: "Eight detectors executed",
+    summary: worst ? `${findings.length} issues found. Lead issue: ${worst.title}.` : "No leakage signatures matched.",
+    status: worst && worst.severity !== "low" ? "flagged" : "passed",
+    durationMs: Math.round(detectMs),
+    artifacts: [`${findings.length} findings`],
+  });
+
+  await sleep();
+
+  const flagged = flaggedColumns(findings);
+  const model = measureModelRisk(analysisDataset, config.target, flagged, config.timeColumn ?? null, config.entityColumn ?? null);
+  const modelMs = now() - t;
+  t = now();
+  trace.push({
+    id: "quantify",
+    role: "Model agent",
+    title: model ? "Leakage cost measured" : "Model risk not measurable",
+    summary: model
+      ? `5 fold ${model.metric.toUpperCase()} is ${model.full.toFixed(3)} with all features and ${model.clean.toFixed(3)} after removal, an inflation of ${(model.inflation * 100).toFixed(1)} points.`
+      : "The target did not support a binary or numeric model, so inflation was not estimated.",
+    status: model && model.inflation > 0.02 ? "flagged" : "passed",
+    durationMs: Math.round(modelMs),
+    artifacts: model ? [`metric ${model.metric}`, `${model.features} features`] : ["skipped"],
+  });
+
+  await sleep();
+
+  const explainMs = 2;
+  trace.push({
+    id: "explain",
+    role: "Analyst agent",
+    title: "Findings translated",
+    summary: `Each finding carries the statistic that triggered it, the columns involved and the repair step.`,
+    status: "passed",
+    durationMs: explainMs,
+    artifacts: [`${findings.length} explanations`],
+  });
+
+  const verifications = verifyFindings(analysisDataset, config.target, profiles, findings);
+  const passed = verifications.filter((v) => v.supported).length;
+  const verifyMs = now() - t;
+  t = now();
+  trace.push({
+    id: "verify",
+    role: "Verifier agent",
+    title: "Claims recomputed",
+    summary: `${passed} of ${verifications.length} findings were reproduced from the raw table by a second code path.`,
+    status: passed === verifications.length ? "passed" : "flagged",
+    durationMs: Math.round(verifyMs),
+    artifacts: [`${passed}/${verifications.length} verified`],
+  });
+
+  const verdict = buildVerdict(findings, model, analysisMode);
+  const decideMs = now() - t;
+  trace.push({
+    id: "decide",
+    role: "Decision agent",
+    title: `Verdict: ${verdict.label}`,
+    summary: verdict.headline,
+    status: verdict.level === "ship" ? "passed" : "flagged",
+    durationMs: Math.round(decideMs),
+    artifacts: [`score ${verdict.score}/100`],
+  });
+
+  const verifiedIds = new Set(verifications.filter((v) => v.supported).map((v) => v.findingId));
+  const kept = findings.filter((f) => verifiedIds.has(f.id));
+
+  return {
+    datasetName: dataset.name,
+    config,
+    rows: fullRows,
+    columnCount: dataset.columns.length,
+    analysisMode,
+    sampleSize,
+    profiles,
+    findings: kept,
+    model,
+    verdict,
+    trace,
+    verifiedClaims: { total: verifications.length, passed },
+    generatedAt: new Date().toISOString(),
+    engineVersion: ENGINE_VERSION,
   };
 }
 
@@ -73,20 +214,27 @@ export function runAudit(dataset: Dataset, config: AuditConfig): AuditResult {
   const t0 = now();
   let t = t0;
 
-  const profiles = profileDataset(dataset);
+  const fullRows = dataset.rows.length;
+  const analysisDataset = fullRows > ANALYSIS_ROW_THRESHOLD
+    ? systematicSample(dataset, SAMPLE_SIZE)
+    : dataset;
+  const analysisMode: "full" | "sampled" = fullRows > ANALYSIS_ROW_THRESHOLD ? "sampled" : "full";
+  const sampleSize = analysisMode === "sampled" ? analysisDataset.rows.length : null;
+
+  const profiles = profileDataset(analysisDataset);
   const profileMs = now() - t;
   t = now();
   trace.push({
     id: "profile",
     role: "Input agent",
     title: "Schema profiled",
-    summary: `${dataset.columns.length} columns, ${dataset.rows.length} rows, ${profiles.filter((p) => p.missing > 0).length} columns with missing values.`,
+    summary: `${analysisDataset.columns.length} columns, ${analysisDataset.rows.length} analysis rows of ${fullRows} total rows, ${profiles.filter((p) => p.missing > 0).length} columns with missing values.`,
     status: "passed",
     durationMs: Math.round(profileMs),
-    artifacts: [`${dataset.rows.length} rows`, `${dataset.columns.length} columns`],
+    artifacts: [`${analysisDataset.rows.length} analysis rows`, `${analysisDataset.columns.length} columns`],
   });
 
-  const findings = detect(dataset, config.target, config, profiles);
+  const findings = detect(analysisDataset, config.target, config, profiles);
   const detectMs = now() - t;
   t = now();
   const worst = findings[0];
@@ -101,7 +249,7 @@ export function runAudit(dataset: Dataset, config: AuditConfig): AuditResult {
   });
 
   const flagged = flaggedColumns(findings);
-  const model = measureModelRisk(dataset, config.target, flagged, config.timeColumn ?? null, config.entityColumn ?? null);
+  const model = measureModelRisk(analysisDataset, config.target, flagged, config.timeColumn ?? null, config.entityColumn ?? null);
   const modelMs = now() - t;
   t = now();
   trace.push({
@@ -117,7 +265,6 @@ export function runAudit(dataset: Dataset, config: AuditConfig): AuditResult {
   });
 
   const explainMs = 2;
-  t = now();
   trace.push({
     id: "explain",
     role: "Analyst agent",
@@ -128,7 +275,7 @@ export function runAudit(dataset: Dataset, config: AuditConfig): AuditResult {
     artifacts: [`${findings.length} explanations`],
   });
 
-  const verifications = verifyFindings(dataset, config.target, profiles, findings);
+  const verifications = verifyFindings(analysisDataset, config.target, profiles, findings);
   const passed = verifications.filter((v) => v.supported).length;
   const verifyMs = now() - t;
   t = now();
@@ -142,7 +289,7 @@ export function runAudit(dataset: Dataset, config: AuditConfig): AuditResult {
     artifacts: [`${passed}/${verifications.length} verified`],
   });
 
-  const verdict = buildVerdict(findings, model);
+  const verdict = buildVerdict(findings, model, analysisMode);
   const decideMs = now() - t;
   trace.push({
     id: "decide",
@@ -154,15 +301,16 @@ export function runAudit(dataset: Dataset, config: AuditConfig): AuditResult {
     artifacts: [`score ${verdict.score}/100`],
   });
 
-  // Keep only findings the verifier could reproduce.
   const verifiedIds = new Set(verifications.filter((v) => v.supported).map((v) => v.findingId));
   const kept = findings.filter((f) => verifiedIds.has(f.id));
 
   return {
     datasetName: dataset.name,
     config,
-    rows: dataset.rows.length,
+    rows: fullRows,
     columnCount: dataset.columns.length,
+    analysisMode,
+    sampleSize,
     profiles,
     findings: kept,
     model,

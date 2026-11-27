@@ -9,15 +9,15 @@ import {
   Play,
   ShieldAlert,
 } from "lucide-react";
-import { parseCsv } from "@/lib/audit/csv";
-import { runAudit } from "@/lib/audit/engine";
+import { parseCsvAsync } from "@/lib/audit/csv";
+import { runAuditAsync } from "@/lib/audit/engine";
 import { associationsFor } from "@/lib/audit/detectors";
 import type { AuditConfig, AuditResult, Dataset } from "@/lib/audit/types";
 import { DEMO_CASES } from "@/lib/cases";
 import { VerdictCard, ModelCard, Findings } from "@/components/workspace/verdict";
 import { TracePanel, ColumnsPanel, VerificationCard } from "@/components/workspace/trace";
 
-type Phase = "loading" | "running" | "done" | "error";
+type Phase = "idle" | "loading" | "running" | "done" | "error";
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
@@ -53,7 +53,7 @@ export function Workspace() {
     setOpenId(null);
     await sleep(60);
     try {
-      const res = runAudit(ds, cfg);
+      const res = await runAuditAsync(ds, cfg);
       if (id !== runId.current) return;
       setResult(res);
       for (let i = 1; i <= res.trace.length; i++) {
@@ -65,7 +65,7 @@ export function Workspace() {
       setPhase("done");
     } catch {
       if (id !== runId.current) return;
-      setError("The audit could not finish on this table. Check the target column and try a smaller file.");
+      setError("The audit could not finish on this table. Check the target column and try again.");
       setPhase("error");
     }
   }, []);
@@ -81,7 +81,7 @@ export function Workspace() {
       try {
         const res = await fetch(`/cases/${meta.file}`);
         if (!res.ok) throw new Error("missing");
-        const ds = parseCsv(await res.text(), meta.file);
+        const ds = await parseCsvAsync(await res.text(), meta.file);
         setDataset(ds);
         const cfg: AuditConfig = {
           target: meta.target,
@@ -117,18 +117,11 @@ export function Workspace() {
   const onUpload = useCallback(
     async (file: File) => {
       setError(null);
-      if (file.size > 8 * 1024 * 1024) {
-        setError("That file is larger than 8 MB. Sample the table first.");
-        return;
-      }
       try {
-        const ds = parseCsv(await file.text(), file.name);
+        const text = await file.text();
+        const ds = await parseCsvAsync(text, file.name);
         if (ds.columns.length < 2 || ds.rows.length < 40) {
           setError("A table needs at least two columns and forty rows for a useful audit.");
-          return;
-        }
-        if (ds.rows.length > 20000) {
-          setError("That table has more than 20,000 rows. Sample it first so the audit stays fast.");
           return;
         }
         const target = guessTarget(ds);
@@ -162,6 +155,7 @@ export function Workspace() {
 
   const columns = dataset?.columns ?? [];
   const busy = phase === "loading" || phase === "running";
+  const isSampled = result?.analysisMode === "sampled";
 
   return (
     <div className="mx-auto max-w-[1400px] px-3 py-4 sm:px-5 sm:py-6">
@@ -259,12 +253,17 @@ export function Workspace() {
             })}
             {caseId === "custom" && dataset ? (
               <div className="flex items-start gap-2.5 rounded-lg bg-raised px-2.5 py-2.5">
-                <span className="mt-[6px] size-[6px] shrink-0 rounded-full bg-blue" />
+                <span className={`mt-[6px] size-[6px] shrink-0 rounded-full ${isSampled ? "bg-amber" : "bg-blue"}`} />
                 <span className="min-w-0">
                   <span className="block truncate text-[12px] text-ink">{dataset.name}</span>
                   <span className="mono mt-1 block text-[9px] uppercase tracking-wider text-faint">
                     {dataset.rows.length} rows / uploaded
                   </span>
+                  {isSampled ? (
+                    <span className="mono mt-1 block text-[9px] text-amber">
+                      sampled analysis ({result?.sampleSize} analysis rows)
+                    </span>
+                  ) : null}
                 </span>
               </div>
             ) : null}
@@ -311,7 +310,8 @@ export function Workspace() {
               {busy ? "Auditing" : "Run audit"}
             </button>
             <p className="mt-2 text-[10px] leading-relaxed text-faint">
-              The file stays in this tab. Only the bundled demos are fetched.
+              The file stays in this tab. Only the bundled demos are fetched. Large tables are analyzed
+              on a deterministic sample; the full row count is always reported.
             </p>
           </div>
         </aside>
@@ -408,6 +408,12 @@ export function Workspace() {
               <div className="flex justify-between gap-3">
                 <dt className="text-faint">Model</dt>
                 <dd className="mono text-muted">logistic / ridge</dd>
+              </div>
+              <div className="flex justify-between gap-3">
+                <dt className="text-faint">Analysis</dt>
+                <dd className={`mono text-muted ${isSampled ? "text-amber" : ""}`}>
+                  {isSampled ? "sampled" : "full"}
+                </dd>
               </div>
             </dl>
           </div>

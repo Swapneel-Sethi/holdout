@@ -112,3 +112,89 @@ export function valuesToCsv(headers: string[], rows: RawValue[][]): string {
   };
   return [headers.map(esc).join(","), ...rows.map((r) => r.map(esc).join(","))].join("\n");
 }
+
+function buildDataset(
+  name: string,
+  rows: string[][],
+): Dataset {
+  const nonEmpty = rows.filter((r) => r.some((v) => v.trim() !== ""));
+  if (nonEmpty.length === 0) return { name, columns: [], rows: [] };
+
+  const columns = nonEmpty[0].map((c, i) => c.trim() || `column_${i + 1}`);
+  const body = nonEmpty.slice(1).filter((r) => r.length === columns.length || r.some((v) => v !== ""));
+  const values: RawValue[][] = body.map((r) =>
+    columns.map((_, i) => {
+      const raw = (r[i] ?? "").trim();
+      if (MISSING.has(raw.toLowerCase())) return null;
+      const n = Number(raw);
+      if (raw !== "" && Number.isFinite(n) && !/^0\d/.test(raw)) return n;
+      return raw;
+    }),
+  );
+
+  return { name, columns, rows: values };
+}
+
+export async function parseCsvAsync(
+  text: string,
+  name = "dataset.csv",
+  options: { chunkChars?: number; yieldEveryMs?: number } = {},
+): Promise<Dataset> {
+  const { chunkChars = 16384, yieldEveryMs = 50 } = options;
+  const clean = text.replace(/^\uFEFF/, "");
+
+  const rows: string[][] = [];
+  let field = "";
+  let row: string[] = [];
+  let quoted = false;
+
+  let i = 0;
+  let lastYield = typeof performance !== "undefined" ? performance.now() : Date.now();
+
+  while (i < clean.length) {
+    const chunkEnd = Math.min(i + chunkChars, clean.length);
+
+    while (i < chunkEnd) {
+      const c = clean[i];
+      if (quoted) {
+        if (c === '"') {
+          if (clean[i + 1] === '"') {
+            field += '"';
+            i++;
+          } else {
+            quoted = false;
+          }
+        } else {
+          field += c;
+        }
+      } else if (c === '"') {
+        quoted = true;
+      } else if (c === ",") {
+        row.push(field);
+        field = "";
+      } else if (c === "\n" || c === "\r") {
+        if (c === "\r" && clean[i + 1] === "\n") i++;
+        row.push(field);
+        rows.push(row);
+        row = [];
+        field = "";
+      } else {
+        field += c;
+      }
+      i++;
+    }
+
+    const now = typeof performance !== "undefined" ? performance.now() : Date.now();
+    if (now - lastYield >= yieldEveryMs) {
+      await new Promise((r) => setTimeout(r, 0));
+      lastYield = now;
+    }
+  }
+
+  if (field.length > 0 || row.length > 0) {
+    row.push(field);
+    rows.push(row);
+  }
+
+  return buildDataset(name, rows);
+}
